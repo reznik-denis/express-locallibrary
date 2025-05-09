@@ -7,6 +7,8 @@ const connectDB = require("./db");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const catalogRouter = require("./routes/catalog"); // Імпорт маршрутів для "каталогу" сайту
+
 
 var app = express();
 // Connect to MongoDB
@@ -24,6 +26,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use("/catalog", catalogRouter); // Додавання маршрутів каталогу до ланцюжка проміжного програмного забезпечення.
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
